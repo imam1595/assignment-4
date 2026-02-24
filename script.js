@@ -53,21 +53,7 @@ jobCounts();
 
 //step-2 toggle function
 
-function toggleButton(id){
-    // console.log('clicked', id);
-
-    // allToggleBtn.classList.remove('bg-blue-500', 'text-white');
-    // interviewToggleBtn.classList.remove('bg-[#f1f2f4]', 'text-gray-600');
-    // rejectedToggleBtn.classList.remove('bg-[#f1f2f4]', 'text-gray-600');
-
-    // allToggleBtn.classList.add('bg-[#f1f2f4]', 'text-gray-600');
-    // interviewToggleBtn.classList.add('bg-blue-500', 'text-white');
-    // rejectedToggleBtn.classList.add('bg-blue-500', 'text-white');
-}
-
-//or
 allToggleBtn.addEventListener('click', function(e){
-    // console.log("clicked", e.target);
 
     currentStatus = 'all-toggle-btn';
 
@@ -75,12 +61,9 @@ allToggleBtn.addEventListener('click', function(e){
     interviewToggleBtn.classList.remove('bg-blue-500', 'text-white');
     rejectedToggleBtn.classList.remove('bg-blue-500', 'text-white');
 
-    // allCards.classList.remove('hidden');
-    // showInerViewRejectList.classList.add('hidden');
 
     if(allCards.children.length == 0 && currentStatus == 'all-toggle-btn'){
 
-        // show empty
         allCards.classList.add('hidden');
         showInerViewRejectList.classList.remove('hidden');
 
@@ -88,7 +71,6 @@ allToggleBtn.addEventListener('click', function(e){
 
     }else{
 
-        // show cards
         allCards.classList.remove('hidden');
         showInerViewRejectList.classList.add('hidden');
 
@@ -96,11 +78,12 @@ allToggleBtn.addEventListener('click', function(e){
 
     showAllJobs();
     
+    
+    
 
 })
 
 interviewToggleBtn.addEventListener('click', function(e){
-    // console.log('clicked', e.target);
 
   
     currentStatus = 'interview-toggle-btn';
@@ -116,11 +99,13 @@ interviewToggleBtn.addEventListener('click', function(e){
     renderInterview();
 
     showInterviewJobs();
+    
+    
 
 })
 
 rejectedToggleBtn.addEventListener('click', function(e){
-    // console.log('clicked', e.target);
+
 
     currentStatus = 'rejected-toggle-btn';
 
@@ -135,18 +120,19 @@ rejectedToggleBtn.addEventListener('click', function(e){
     renderReject();
 
     showRejectedJobs();
+    
 })
 
 
 //step-3 interviewList and rejectedList update using event delegation.
 
 mainContainer.addEventListener('click', function(e){
-    // console.log(e.target.parentNode.parentNode);
+
 
     const parentNode = e.target.parentNode.parentNode;
 
     if(e.target.classList.contains('interview-btn')){
-        // console.log('you clicked ', e.target);
+
 
         const companyName = parentNode.querySelector('.company').innerText;
         const skill = parentNode.querySelector('.skill').innerText;
@@ -186,17 +172,14 @@ mainContainer.addEventListener('click', function(e){
         if(currentStatus == 'rejected-toggle-btn'){
             renderReject();
         }
-        
-        
-        // console.log(interviewList);
 
-
-        
+        showRejectedJobs();
+        // showInerViewRejectList();
 
 
 
     } else if(e.target.classList.contains('rejected-btn')){
-        // console.log('you clicked', e.target);
+        
 
         const companyName = parentNode.querySelector('.company').innerText;
         const skill = parentNode.querySelector('.skill').innerText;
@@ -219,8 +202,6 @@ mainContainer.addEventListener('click', function(e){
 
         parentNode.querySelector('.status').innerText = 'Rejected';
 
-        console.log(jobInfo);
-        console.log(parentNode);
 
         const jobExist = rejectedList.find(job => job.companyName == jobInfo.companyName);
 
@@ -239,28 +220,33 @@ mainContainer.addEventListener('click', function(e){
             renderInterview();
         }
 
-        
-
-        // console.log(rejectedList);
-
-        
+        showInterviewJobs();
+        // showRejectedJobs();
 
     } else if(e.target.classList.contains('delete-btn')){
 
 
         const companyName = parentNode.querySelector('.company').innerText;
 
-        // Remove from interviewList or rejectedList if present
         interviewList = interviewList.filter(job => job.companyName !== companyName);
         rejectedList = rejectedList.filter(job => job.companyName !== companyName);
 
-        // Remove from DOM
+          // remove from AllCards original list
+        const allCardItems = allCards.querySelectorAll('.card');
+
+        for(let card of allCardItems){
+
+        const name = card.querySelector('.company').innerText;
+
+        if(name === companyName){
+            card.remove();
+        }
+    }
+
         parentNode.remove();
 
-        // Update counts
         jobCounts();
 
-        console.log("allCards.children.length = ",allCards.children.length);
         
         // If viewing filtered lists, re-render to handle empty state
         if(currentStatus === 'interview-toggle-btn') {
@@ -270,10 +256,15 @@ mainContainer.addEventListener('click', function(e){
             showRejectedJobs();
             renderReject();
         }
-        console.log(currentStatus);
+
         if(allCards.children.length == 0 && currentStatus == 'all-toggle-btn'){
-            console.log("after")
+
+            allCards.classList.add('hidden');
+
+            showInerViewRejectList.classList.remove('hidden');
+
             renderEmpty();
+
             return;
         } else if(interviewList.length == 0 && currentStatus == 'interview-toggle-btn'){
             renderEmpty();

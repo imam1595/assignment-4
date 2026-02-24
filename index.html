@@ -11,7 +11,7 @@
 <body>
 
     <header class="w-[80%] mx-auto">
-        <h1 class="font-bold text-4xl text-[#002c5c]">Job Application Tracker</h1>
+        <h1 class="text-2xl text-blue-500 font-bold sm:font-bold sm:text-4xl sm:text-[#002c5c]">Job Application Tracker</h1>
         <div class="grid grid-cols-3 gap-7 mt-7">
             <div class="bg-[#f1f2f4] p-8 ">
                 <P>Total</P>
@@ -35,17 +35,17 @@
             <p class="text-[#002c5c] text-2xl font-bold">Available Jobs</p>
             <p  id="totalCount-avail"><span class="total">0</span> Jobs</p>
         </div>
-        <div class="flex gap-3 mt-8">
-            <button onclick="toggleButton('all-toggle-btn')" class="bg-blue-500 px-6 text-white border" id="all-toggle-btn">All</button>
-            <button onclick="toggleButton('interview-toggle-btn')" class="bg-[#f1f2f4] px-6 text-gray-600 border" id="interview-toggle-btn">Interview</button>
-            <button onclick="toggleButton('rejected-toggle-btn')" class="bg-[#f1f2f4] px-6 text-gray-600 border" id="rejected-toggle-btn">Rejected</button>
+        <div class="flex justify-center gap-3 mt-8 sm:justify-start">
+            <button class="bg-blue-500 px-6 text-white border" id="all-toggle-btn">All</button>
+            <button class="bg-[#f1f2f4] px-6 text-gray-600 border" id="interview-toggle-btn">Interview</button>
+            <button class="bg-[#f1f2f4] px-6 text-gray-600 border" id="rejected-toggle-btn">Rejected</button>
         </div>
 
-        <section id="show-inerview-reject-list" class="hidd">
+        <section id="show-inerview-reject-list" class="hidden">
 
         </section>
 
-        <section id="allCards" class="space-y-8 ">
+        <section id="allCards" class="space-y-8 bg-blue-200 sm:space-y-8 sm:bg-white">
 
             <div class="card mt-8 flex justify-between bg-[#f1f2f4] p-5 border">
                 <div class="space-y-3 text-gray-700">
