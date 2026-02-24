@@ -15,7 +15,7 @@
         <div class="grid grid-cols-3 gap-7 mt-7">
             <div class="bg-[#f1f2f4] p-8 ">
                 <P>Total</P>
-                <p class="total text-[#002c5c]">0</p>
+                <p id = "totalCount-top" class="total text-[#002c5c]">0</p>
             </div>
             <div class="bg-[#f1f2f4] p-8">
                 <p>Interview</p>
@@ -33,7 +33,7 @@
     <main class="w-[80%] mx-auto">
         <div class="flex justify-between">
             <p class="text-[#002c5c] text-2xl font-bold">Available Jobs</p>
-            <p><span class="total">0</span> Jobs</p>
+            <p  id="totalCount-avail"><span class="total">0</span> Jobs</p>
         </div>
         <div class="flex gap-3 mt-8">
             <button onclick="toggleButton('all-toggle-btn')" class="bg-blue-500 px-6 text-white border" id="all-toggle-btn">All</button>
@@ -68,8 +68,8 @@
                     </div>
                 </div>
 
-                <div class="delete-btn">
-                <button>Delete</button>
+                <div>
+                    <img src="./asset/bin.png" alt="bin.pic" class="w-20 h-20 object-contain delete-btn">
                 </div>
             </div>
 
@@ -94,8 +94,8 @@
                     </div>
                 </div>
 
-                <div class="delete-btn">
-                    <button>Delete</button>
+                <div>
+                    <img src="./asset/bin.png" alt="bin.pic" class="w-20 h-20 object-contain delete-btn">
                 </div>
             </div>
 
@@ -120,12 +120,144 @@
                     </div>
                 </div>
 
-                <div class="delete-btn">
-                <button>Delete</button>
+                <div>
+                    <img src="./asset/bin.png" alt="bin.pic" class="w-20 h-20 object-contain delete-btn">
+                </div>
+            </div>
+
+            <div class="card mt-8 flex justify-between bg-[#f1f2f4] p-5 border">
+                <div class="space-y-3 text-gray-700">
+                    <div>
+                        <p class="text-[#002c5c] text-2xl font-bold mb-3 company">CloudFirst Inc</p>
+                        <p class="skill">Backend Developer</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <p class="location">Seattle, WA</p>
+                        <p class="time">• Full-time</p>
+                        <p class="money">• $140,000 - $190,000</p>
+                    </div>
+                    <div>
+                        <p class="p-2 bg-[#5199e6] w-30 h-10 text-black status">NOT APPLIED</p>
+                        <p class="note">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
+                    </div>
+                    <div>
+                        <button class="interview-btn p-2 text-green-400 border-2">INTERVIEW</button>
+                        <button class="rejected-btn p-2 text-red-400 border-2">REJECTED</button>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="./asset/bin.png" alt="bin.pic" class="w-20 h-20 object-contain delete-btn">
+                </div>
+            </div>
+
+            <div class="card mt-8 flex justify-between bg-[#f1f2f4] p-5 border">
+                <div class="space-y-3 text-gray-700">
+                    <div>
+                        <p class="text-[#002c5c] text-2xl font-bold mb-3 company">Innovation Labs</p>
+                        <p class="skill">UI/UX Engineer</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <p class="location">Austin, TX</p>
+                        <p class="time">• Full-time</p>
+                        <p class="money">• $110,000 - $150,000</p>
+                    </div>
+                    <div>
+                        <p class="p-2 bg-[#5199e6] w-30 h-10 text-black status">NOT APPLIED</p>
+                        <p class="note">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
+                    </div>
+                    <div>
+                        <button class="interview-btn p-2 text-green-400 border-2">INTERVIEW</button>
+                        <button class="rejected-btn p-2 text-red-400 border-2">REJECTED</button>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="./asset/bin.png" alt="bin.pic" class="w-20 h-20 object-contain delete-btn">
+                </div>
+            </div>
+
+            <div class="card mt-8 flex justify-between bg-[#f1f2f4] p-5 border">
+                <div class="space-y-3 text-gray-700">
+                    <div>
+                        <p class="text-[#002c5c] text-2xl font-bold mb-3 company">MegaCorp Solutions</p>
+                        <p class="skill">JavaScript Developer</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <p class="location">New York, NY</p>
+                        <p class="time">• Full-time</p>
+                        <p class="money">• $130,000 - $170,00</p>
+                    </div>
+                    <div>
+                        <p class="p-2 bg-[#5199e6] w-30 h-10 text-black status">NOT APPLIED</p>
+                        <p class="note">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
+                    </div>
+                    <div>
+                        <button class="interview-btn p-2 text-green-400 border-2">INTERVIEW</button>
+                        <button class="rejected-btn p-2 text-red-400 border-2">REJECTED</button>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="./asset/bin.png" alt="bin.pic" class="w-20 h-20 object-contain delete-btn">
+                </div>
+            </div>
+
+            <div class="card mt-8 flex justify-between bg-[#f1f2f4] p-5 border">
+                <div class="space-y-3 text-gray-700">
+                    <div>
+                        <p class="text-[#002c5c] text-2xl font-bold mb-3 company">StartupXYZ</p>
+                        <p class="skill">Full Stack Engineer</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <p class="location">Remote</p>
+                        <p class="time">• Full-time</p>
+                        <p class="money">• $120,000 - $160,000</p>
+                    </div>
+                    <div>
+                        <p class="p-2 bg-[#5199e6] w-30 h-10 text-black status">NOT APPLIED</p>
+                        <p class="note">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
+                    </div>
+                    <div>
+                        <button class="interview-btn p-2 text-green-400 border-2">INTERVIEW</button>
+                        <button class="rejected-btn p-2 text-red-400 border-2">REJECTED</button>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="./asset/bin.png" alt="bin.pic" class="w-20 h-20 object-contain delete-btn">
+                </div>
+            </div>
+
+            <div class="card mt-8 flex justify-between bg-[#f1f2f4] p-5 border">
+                <div class="space-y-3 text-gray-700">
+                    <div>
+                        <p class="text-[#002c5c] text-2xl font-bold mb-3 company">TechCorp Industries</p>
+                        <p class="skill">Senior Frontend Developer</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <p class="location">San Francisco, CA</p>
+                        <p class="time">• Full-time</p>
+                        <p class="money">• $130,000 - $175,000/p>
+                    </div>
+                    <div>
+                        <p class="p-2 bg-[#5199e6] w-30 h-10 text-black status">NOT APPLIED</p>
+                        <p class="note">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
+                    </div>
+                    <div>
+                        <button class="interview-btn p-2 text-green-400 border-2">INTERVIEW</button>
+                        <button class="rejected-btn p-2 text-red-400 border-2">REJECTED</button>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="./asset/bin.png" alt="bin.pic" class="w-20 h-20 object-contain delete-btn">
                 </div>
             </div>
 
         </section>
+
+
     </main>
 
 
